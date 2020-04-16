@@ -1,1 +1,22 @@
-<p>users works!</p>
+<div class="card">
+  <div class="card-header">
+    <div class="row justify-content-between">
+      <div class="col text-center">
+        <p class="text-primary d-inline"> Users list </p>
+      </div>
+      <div class="col-2 text-right" *ngIf="showAddUserButton" >
+        <button class="btn btn-primary d-inline my-2 my-lg-0" (click)="showPanel(true)">Add new user</button>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid h-100">
+    <div class="row h-100 align-items-center  ">
+      <div class="col">
+        <app-users-list (showUserPanel)='showPanel($event);'></app-users-list>
+      </div>
+      <div class="col-3" *ngIf="showUserPanel">
+        <app-user (hideUserPanel)='showPanel($event);'></app-user>
+      </div>
+    </div>
+  </div>
+</div>
