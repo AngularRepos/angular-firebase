@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { UsersComponent } from './users/users.component';
-import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './home/page-not-found.component';
+import { HomeComponent } from './main/home.component';
+import { PageNotFoundComponent } from './main/page-not-found.component';
 import { WishesComponent } from './wishes/wishes.component';
 
 const routes: Routes = [

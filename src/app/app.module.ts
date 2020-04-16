@@ -14,8 +14,8 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './home/page-not-found.component';
+import { HomeComponent } from './main/home.component';
+import { PageNotFoundComponent } from './main/page-not-found.component';
 import { WishesComponent } from './wishes/wishes.component';
 
 @NgModule({

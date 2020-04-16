@@ -1,6 +1,6 @@
 <div class="container ml-3">
   <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-    <input type="hidden" name="$key" #$key="ngModel" ngModel="userService.selectedUser.$key">
+
     <div class="form-group">
       <input class="form-control" required placeholder="Name" [(ngModel)]="userService.selectedUser.user_name" name="user_name" type="text">
     </div>
