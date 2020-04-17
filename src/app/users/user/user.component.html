@@ -1,6 +1,6 @@
 <div class="container ml-3">
   <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-
+    <input type="hidden" #$key="ngModel"  [(ngModel)]="userService.selectedUser.$key" name="$key">
     <div class="form-group">
       <input class="form-control" required placeholder="Name" [(ngModel)]="userService.selectedUser.user_name" name="user_name" type="text">
     </div>
@@ -25,12 +25,12 @@
       </div>
     </div>
     <div class="row text-center ">
-      <div class="col" *ngIf="$key != null; buttonEdit">
-        <button class="btn btn-success btn-block" type="submit">Add</button>
+      <div class="col">
+        <button class="btn btn-success btn-block" type="submit" *ngIf="userService.selectedUser.$key == null; else buttonEdit">Add</button>
+        <ng-template #buttonEdit class="col">
+          <button class="btn btn-success btn-block" type="submit">Edit</button>
+        </ng-template>
       </div>
-      <ng-template #buttonEdit>
-        <button class="btn btn-success btn-block" type="submit">Edit</button>
-      </ng-template>
       <div class="col">
         <button class="btn btn-danger btn-block" type="reset">Cancel</button>
       </div>
