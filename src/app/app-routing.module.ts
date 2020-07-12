@@ -5,12 +5,14 @@ import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './main/home.component';
 import { PageNotFoundComponent } from './main/page-not-found.component';
 import { WishesComponent } from './wishes/wishes.component';
+import { WishComponent } from './wishes/wish/wish.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'users', component: UsersComponent},
   {path: 'wishes', component: WishesComponent},
+  {path: 'wish', component: WishComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
