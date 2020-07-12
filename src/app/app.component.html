@@ -16,11 +16,15 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+      <button *ngIf="loguedUser; else LogIn" class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+      <ng-template #LogIn>
+        <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+      </ng-template>
     </form>
   </div>
 </nav>
 <div class="container">
 
   <router-outlet></router-outlet>
+
 </div>

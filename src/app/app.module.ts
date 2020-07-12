@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './main/home.component';
 import { PageNotFoundComponent } from './main/page-not-found.component';
 import { WishesComponent } from './wishes/wishes.component';
+import { UsersLoginComponent } from './users/users-login/users-login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { WishesComponent } from './wishes/wishes.component';
     UsersListComponent,
     HomeComponent,
     PageNotFoundComponent,
-    WishesComponent
+    WishesComponent,
+    UsersLoginComponent
   ],
   imports: [
     BrowserModule,
