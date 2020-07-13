@@ -42,4 +42,7 @@ export class UserService {
     this.userList.remove($key);
   }
 
+  loginUser() {}
+  logoutUser() {}
+
 }

@@ -18,6 +18,8 @@ import { HomeComponent } from './main/home.component';
 import { PageNotFoundComponent } from './main/page-not-found.component';
 import { WishesComponent } from './wishes/wishes.component';
 import { UsersLoginComponent } from './users/users-login/users-login.component';
+import { WishesListComponent } from './wishes/wishes-list/wishes-list.component';
+import { WishComponent } from './wishes/wish/wish.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { UsersLoginComponent } from './users/users-login/users-login.component';
     HomeComponent,
     PageNotFoundComponent,
     WishesComponent,
-    UsersLoginComponent
+    UsersLoginComponent,
+    WishesListComponent,
+    WishComponent
   ],
   imports: [
     BrowserModule,

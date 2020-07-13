@@ -6,6 +6,7 @@ import { HomeComponent } from './main/home.component';
 import { PageNotFoundComponent } from './main/page-not-found.component';
 import { WishesComponent } from './wishes/wishes.component';
 import { UsersLoginComponent } from './users/users-login/users-login.component';
+import { WishComponent } from './wishes/wish/wish.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'login', component: UsersLoginComponent},
   {path: 'users', component: UsersComponent},
   {path: 'wishes', component: WishesComponent},
+  {path: 'wish', component: WishComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
