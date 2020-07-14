@@ -5,7 +5,7 @@
         <h3 class="text-primary d-inline text-uppercase text-monospace"> wish list </h3>
       </div>
       <div class="col-2 text-right">
-        <button class="btn btn-primary d-inline my-2 my-lg-0" (click)="showWishPanel()" >Add a new wish!</button>
+        <button class="btn btn-primary d-inline my-2 my-lg-0" (click)="newWishPanel(true)" >Add a new wish!</button>
       </div>
     </div>
   </div>
@@ -14,7 +14,7 @@
       <div class="col">
         <app-wishes-list></app-wishes-list>
       </div>
-      <div class="col-3" *ngIf="addWishPanel">
+      <div class="col-5" *ngIf="showAddWishPanel">
         <app-wish></app-wish>
       </div>
     </div>

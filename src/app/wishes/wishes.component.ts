@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-wishes',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WishesComponent implements OnInit {
 
+  @Input() showAddWishPanel: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  newWishPanel(valor: boolean) {
+    this.showAddWishPanel = valor;
+  }
 }

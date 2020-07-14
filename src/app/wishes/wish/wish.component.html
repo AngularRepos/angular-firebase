@@ -1,1 +1,27 @@
-<p>wish works!</p>
+<section id="addWish" class="mb-5 mt-5">
+  <div >
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body text-center">
+            <form #wishForm="ngForm" (ngSubmit)="onSubmit(wishForm)">
+              <input type="hidden" #$key="ngModel"  [(ngModel)]="wishService.selectedWish.$key" name="$key">
+
+              <h1 class="h4 mb-3 font-weight-normal">Add a new wish...</h1>
+              <div class="form-group">
+                <input type="text" id="wish_name" [(ngModel)]="wishService.selectedWish.wish_name" name="wish_name" class="form-control" placeholder="Your wish..." required>
+              </div>
+              <div class="form-group">
+                <textarea id="description" [(ngModel)]="wishService.selectedWish.description" name="description" class="form-control" placeholder="Describe your wish..." required></textarea>
+              </div>
+              <div class="form-group">
+                <input type="text" id="owner" [(ngModel)]="wishService.selectedWish.owner" name="owner" class="form-control" placeholder="owner" required>
+              </div>
+              <button type="submit" class="btn btn-lg btn-primary btn-block">save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

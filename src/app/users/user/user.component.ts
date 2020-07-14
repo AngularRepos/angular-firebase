@@ -22,6 +22,7 @@ export class UserComponent implements OnInit {
 
 
   onSubmit(userForm: NgForm){
+    console.log(userForm.value);
     if (userForm.valid){
       if (userForm.value.$key == null)
         this.userService.addUser(userForm.value);

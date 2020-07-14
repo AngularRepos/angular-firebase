@@ -5,9 +5,11 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class WishService {
 
   wishList: AngularFireList<any>;
+  selectedWish: Wish = new Wish();
 
   constructor(private firebase: AngularFireDatabase) { }
 
@@ -20,7 +22,15 @@ export class WishService {
       wish_name: wish.wish_name,
       description: wish.description,
       owner: wish.owner
-    })
+    });
   }
-  
+
+  updateWish(wish: Wish){
+    this.wishList.update(wish.$key, {
+      wish_name: wish.wish_name,
+      description: wish.description,
+      owner: wish.owner
+   });
+  }
+
 }
