@@ -1,19 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-wishes',
   templateUrl: './wishes.component.html',
   styleUrls: ['./wishes.component.css']
 })
 export class WishesComponent implements OnInit {
 
-  @Input() showAddWishPanel: boolean = false;
+  @Input() showWishPanel: boolean = false;
+  showAddWishButton: boolean = true;
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  showPanel(valor: boolean) {
+    this.showWishPanel = valor;
+    this.showAddWishButton=!valor;
   }
 
-  newWishPanel(valor: boolean) {
-    this.showAddWishPanel = valor;
-  }
 }

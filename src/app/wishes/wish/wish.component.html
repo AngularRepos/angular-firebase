@@ -7,7 +7,10 @@
             <form #wishForm="ngForm" (ngSubmit)="onSubmit(wishForm)">
               <input type="hidden" #$key="ngModel"  [(ngModel)]="wishService.selectedWish.$key" name="$key">
 
-              <h1 class="h4 mb-3 font-weight-normal">Add a new wish...</h1>
+              <h1 class="h4 mb-3 font-weight-normal" *ngIf="wishService.selectedWish.$key == null; else Edit">Add a new wish...</h1>
+              <ng-template #Edit>
+                <h1 class="h4 mb-3 font-weight-normal">Edit your wish...</h1>
+              </ng-template>
               <div class="form-group">
                 <input type="text" id="wish_name" [(ngModel)]="wishService.selectedWish.wish_name" name="wish_name" class="form-control" placeholder="Your wish..." required>
               </div>
@@ -17,7 +20,17 @@
               <div class="form-group">
                 <input type="text" id="owner" [(ngModel)]="wishService.selectedWish.owner" name="owner" class="form-control" placeholder="owner" required>
               </div>
-              <button type="submit" class="btn btn-lg btn-primary btn-block">save</button>
+              <div class="row text-center ">
+              <div class="col">
+                <button class="btn btn-success btn-block" type="submit" *ngIf="wishService.selectedWish.$key == null; else buttonEdit">Save</button>
+                <ng-template #buttonEdit class="col">
+                  <button class="btn btn-success btn-block" type="submit">Edit</button>
+                </ng-template>
+              </div>
+              <div class="col">
+                <button type="submit" class="btn btn-danger btn-block" (click)="hidePanel()">Cancel</button>
+              </div>
+              </div>
             </form>
           </div>
         </div>

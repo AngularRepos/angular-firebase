@@ -7,17 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class UsersComponent implements OnInit {
 
   @Input() showUserPanel: boolean;
-  showAddUserButton: boolean;
+  showAddUserButton: boolean = true;
 
   constructor() { }
 
-  ngOnInit() {
-    this.showAddUserButton = true;
-  }
+  ngOnInit() { }
 
   showPanel(valor: boolean) {
     this.showUserPanel = valor;
     this.showAddUserButton=!valor;
-}
+  }
 
 }

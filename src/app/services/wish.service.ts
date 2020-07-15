@@ -33,4 +33,8 @@ export class WishService {
    });
   }
 
+  deleteWish($key: string){
+    this.wishList.remove($key);
+  }
+
 }

@@ -10,7 +10,9 @@
     <tr *ngFor="let wish of wishList; let i = index">
       <td>{{ i +1 }} </td>
       <td>{{ wish.wish_name }}</td>
-      <td>{{ wish.description }}</td>      
+      <td>{{ wish.description }}</td>
+      <td><button class="btn btn-secondary mr-1" (click)="editWish(wish)">+</button>
+        <button class="btn btn-danger" (click)="deleteWish(wish.$key) ">-</button></td>
     </tr>
   </tbody>
 </table>

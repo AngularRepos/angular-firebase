@@ -22,13 +22,13 @@ export class UserComponent implements OnInit {
 
 
   onSubmit(userForm: NgForm){
-    console.log(userForm.value);
     if (userForm.valid){
-      if (userForm.value.$key == null)
+      if (userForm.value.$key == null) {
         this.userService.addUser(userForm.value);
-      else {
-        console.log("aquí");
+        this.hidePanel();
+      } else {
         this.userService.updateUser(userForm.value);
+        this.hidePanel();
       }
     } else {
       alert("el formulario no es valido");

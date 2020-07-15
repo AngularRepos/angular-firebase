@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { WishService } from 'src/app/services/wish.service';
 import { Wish } from 'src/app/models/wish';
 
@@ -10,6 +10,7 @@ import { Wish } from 'src/app/models/wish';
 export class WishesListComponent implements OnInit {
 
   wishList: Wish[];
+  @Output() showWishPanel = new EventEmitter();
 
   constructor(private wishService: WishService) { }
 
@@ -24,6 +25,16 @@ export class WishesListComponent implements OnInit {
           this.wishList.push(w as Wish);
         })
       })
+  }
+
+  deleteWish($key: string){
+    this.wishService.deleteWish($key);
+  }
+
+  editWish(wish: Wish){
+    console.log("entro");
+    this.showWishPanel.emit(true);
+    this.wishService.selectedWish = Object.assign({}, wish);
   }
 
 }
