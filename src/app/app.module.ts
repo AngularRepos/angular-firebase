@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
+import { AngularFireAuth } from '@angular/fire/auth'
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -17,9 +18,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './main/home.component';
 import { PageNotFoundComponent } from './main/page-not-found.component';
 import { WishesComponent } from './wishes/wishes.component';
-import { UsersLoginComponent } from './users/users-login/users-login.component';
 import { WishesListComponent } from './wishes/wishes-list/wishes-list.component';
 import { WishComponent } from './wishes/wish/wish.component';
+import { LoginComponent } from './main/login.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,9 @@ import { WishComponent } from './wishes/wish/wish.component';
     HomeComponent,
     PageNotFoundComponent,
     WishesComponent,
-    UsersLoginComponent,
     WishesListComponent,
-    WishComponent
+    WishComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,7 @@ import { WishComponent } from './wishes/wish/wish.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,11 @@
 <div class="ng-container">
   <h1 class="jumbotron text-center text-success"> Bienvenido a nuestra aplicación</h1>
-  <div class="row text-center">
+  <div class="row text-center align-items-center">
     <div class="col">
       <p>Esta es una aplicación pensada para ir anotando aquellos pequeños deseos o caprichos que queremos adquirir pero qué no sabemos exactemente qué modelo, marca o dónde adquirirlo.</p>
       <p>Registrándote, con esta aplicación podrás ir registrándolos en una lista de deseos y, para cada uno de ellos, ir recopilando las diferentes opciones, para posteriormente decidirnos por la más convenientes.</p>
     </div>
-    <div class="col" *ngIf="!showLogin" >
+    <div class="col" *ngIf="!hideLoginPanel" >
       <div class="row mb-3" >
         <div class="col">
           Si ya tienes cuenta, loguéate. Si no, crea tu cuenta ya.
@@ -14,15 +14,15 @@
       <div class="row">
         <div class="col text-right p-3">
           <!-- <a class="btn btn-secondary text-white" [routerLink]="['/login']" >Identifícate</a> -->
-          <a class="btn btn-secondary text-white" (click)="showLoginPanel()" >Identifícate</a>
+          <a class="btn btn-secondary text-white" (click)="showLoginPanel(true)" >Login</a>
         </div>
         <div class="col text-left p-3">
-          <a class="btn btn-secondary text-white" [routerLink]="['/users']">regístrate</a>
+          <a class="btn btn-secondary text-white" [routerLink]="['/users']">Register</a>
         </div>
       </div>
     </div>
-    <div class="col" *ngIf="showLogin">
-      <app-users-login></app-users-login>
+    <div class="col" *ngIf="hideLoginPanel">
+      <app-login (hideLoginPanel)='showLoginPanel($event);'></app-login>
     </div>
   </div>
 </div>

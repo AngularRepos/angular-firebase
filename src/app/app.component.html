@@ -16,7 +16,7 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <button *ngIf="loguedUser; else LogIn" class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+      <button *ngIf="loguedUser; else LogIn" class="btn btn-danger my-2 my-sm-0" (click)="logOut()" >Logout</button>
       <ng-template #LogIn>
         <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
       </ng-template>

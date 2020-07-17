@@ -1,6 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { ModalService } from '../services/modal.service';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -10,40 +10,18 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  //@Output() loguedUser = const name = new type(arguments);
-  display = "none";
-  showLogin: boolean = false;
+  public isLogged: boolean = false;
+  @Input() hideLoginPanel: boolean = false;
 
-  constructor(private modalService: ModalService,
-              private router: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  //método temporal para gardar usuario en localstrage
-  identificarse(){
-    this.modalService.open("custom-modal");
-    //this.loguedUser = true;
+  showLoginPanel(valor: boolean){
+    this.hideLoginPanel = valor;
   }
 
-  onCloseHandled(){
-    this.display='none';
-  }
 
-  openModal(){
-    this.display="block";
-  }
-
-  showLoginPanel(){
-    if (this.showLogin == false){
-      this.showLogin= true;
-      localStorage.setItem("isLogged", "true");
-    } else {
-      this.showLogin= false;
-      this.router.navigate(["/home"]);
-      console.log(this.showLogin);
-    }
-
-  }
 
 }
