@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 
 
@@ -10,16 +11,28 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  public isLogged: boolean = false;
+  isLogged: boolean = false;
   @Input() hideLoginPanel: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
+    this.getCurrentUser();
   }
 
   showLoginPanel(valor: boolean){
     this.hideLoginPanel = valor;
+  }
+
+  getCurrentUser() {
+    this.authService.isAuth().subscribe( auth => {
+      if(auth){
+        this.isLogged = true;
+      } else {
+        this.isLogged = false;
+      }
+    })
   }
 
 

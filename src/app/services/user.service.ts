@@ -19,6 +19,7 @@ export class UserService {
 
   addUser(user: User){
     this.userList.push({
+      email: user.email,
       user_name: user.user_name,
       password: user.password,
       status: user.status,
@@ -28,6 +29,7 @@ export class UserService {
 
   updateUser(user: User){
    this.userList.update(user.$key, {
+      email: user.email,
       user_name: user.user_name,
       password: user.password,
       status: user.status,

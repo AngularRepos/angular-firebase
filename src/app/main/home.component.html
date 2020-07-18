@@ -1,9 +1,9 @@
 <div class="ng-container">
   <h1 class="jumbotron text-center text-success"> Bienvenido a nuestra aplicación</h1>
-  <div class="row text-center align-items-center">
+  <div class="row text-center align-items-center" *ngIf="!isLogged; else loguedPanel">
     <div class="col">
       <p>Esta es una aplicación pensada para ir anotando aquellos pequeños deseos o caprichos que queremos adquirir pero qué no sabemos exactemente qué modelo, marca o dónde adquirirlo.</p>
-      <p>Registrándote, con esta aplicación podrás ir registrándolos en una lista de deseos y, para cada uno de ellos, ir recopilando las diferentes opciones, para posteriormente decidirnos por la más convenientes.</p>
+      <p>Registrándote, con esta aplicación podrás reocogerlos en una lista de deseos y, para cada uno de ellos, ir recopilando las diferentes opciones, para posteriormente decidirnos por la más convenientes.</p>
     </div>
     <div class="col" *ngIf="!hideLoginPanel" >
       <div class="row mb-3" >
@@ -13,7 +13,6 @@
       </div>
       <div class="row">
         <div class="col text-right p-3">
-          <!-- <a class="btn btn-secondary text-white" [routerLink]="['/login']" >Identifícate</a> -->
           <a class="btn btn-secondary text-white" (click)="showLoginPanel(true)" >Login</a>
         </div>
         <div class="col text-left p-3">
@@ -25,6 +24,12 @@
       <app-login (hideLoginPanel)='showLoginPanel($event);'></app-login>
     </div>
   </div>
+  <ng-template #loguedPanel>
+    <div class="col text-center">
+      <p>Esta es una aplicación pensada para ir anotando aquellos pequeños deseos o caprichos que queremos adquirir pero qué no sabemos exactemente qué modelo, marca o dónde adquirirlo.</p>
+      <p>Dirígete a la sección de "<a [routerLink]="['/wishes']" routerLinkActive="router-link-active">Lista de deseos</a>", donde podrás ir añadiendo aquellas compras que quieras valorar.</p>
+    </div>
+  </ng-template>
 </div>
 
 

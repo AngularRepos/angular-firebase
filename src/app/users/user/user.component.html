@@ -1,11 +1,15 @@
 <div class="container ml-3">
   <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
     <input type="hidden" #$key="ngModel"  [(ngModel)]="userService.selectedUser.$key" name="$key">
+
+    <div class="form-group">
+      <input class="form-control" placeholder="Email" type="email" [(ngModel)]="userService.selectedUser.email" name="email" />
+    </div>
     <div class="form-group">
       <input class="form-control" required placeholder="Name" [(ngModel)]="userService.selectedUser.user_name" name="user_name" type="text">
     </div>
     <div class="form-group">
-      <input class="form-control" placeholder="password" type="password" [(ngModel)]="userService.selectedUser.password" name="password" />
+      <input class="form-control" placeholder="password" type="Password" [(ngModel)]="userService.selectedUser.password" name="password" />
     </div>
     <div class="form-group">
       <select name="selection" [(ngModel)]="userService.selectedUser.role" name="role" id="role" >

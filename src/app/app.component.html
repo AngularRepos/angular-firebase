@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/home']" >Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/wishes']" routerLinkActive="router-link-active" >Wishes List</a>
@@ -16,10 +16,8 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <button *ngIf="loguedUser; else LogIn" class="btn btn-danger my-2 my-sm-0" (click)="logOut()" >Logout</button>
-      <ng-template #LogIn>
-        <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
-      </ng-template>
+      <button *ngIf="loguedUser" class="btn btn-danger my-2 my-sm-0" (click)="logOut()" >Logout</button>
+
     </form>
   </div>
 </nav>
