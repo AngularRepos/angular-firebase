@@ -1,6 +1,6 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   loguedUser: boolean = false;
 
   constructor(private authService: AuthService,
-              private afAuth: AngularFireAuth) {}
+              private router: Router) {}
 
   ngOnInit(): void{
     this.getCurrentUser();
@@ -31,7 +31,9 @@ export class AppComponent implements OnInit {
 
   logOut(){
     this.authService.logOut();
+    this.loguedUser = false;
     localStorage.clear();
+    this.router.navigate(['/home'])
   }
 
 
