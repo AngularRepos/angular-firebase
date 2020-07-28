@@ -1,6 +1,5 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -38,6 +37,7 @@ export class AppComponent implements OnInit {
     this.getCurrentUser();
     this.router.navigate(['/home']);
     localStorage.clear();
+    this.router.navigate(['/home'])
   }
 
 
