@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit {
   loguedUser: boolean = false;
 
   constructor(private authService: AuthService,
-              private afAuth: AngularFireAuth) {}
+              private router: Router) {}
 
   ngOnInit(): void{
     this.getCurrentUser();
@@ -22,15 +23,20 @@ export class AppComponent implements OnInit {
   getCurrentUser() {
     this.authService.isAuth().subscribe( auth => {
       if(auth){
+        console.log("comprueba logueado");
         this.loguedUser = true;
       } else {
+        console.log("comprueba deslogueado");
         this.loguedUser = false;
       }
     })
   }
 
   logOut(){
+    console.log("proceso de deslogueo");
     this.authService.logOut();
+    this.getCurrentUser();
+    this.router.navigate(['/home']);
     localStorage.clear();
   }
 

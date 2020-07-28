@@ -22,17 +22,17 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(this.email, this.pass)
     .then(
       res => {
-        this.reDirectOnLogin();
+        this.redirectOnLogin();
         this.hideLogPanel();
     }).catch(
-      err => console.log("error", err));
+      err => this.showErrorOnLogin(err));
   }
 
   loginGoogle(): void {
     this.authService.loginGoogle()
     .then ( res =>{
-      this.reDirectOnLogin();
-    }).catch( err => console.error(err, err));
+      this.redirectOnLogin();
+    }).catch( err => this.showErrorOnLogin(err));
   }
 
 
@@ -40,9 +40,13 @@ export class LoginComponent implements OnInit {
     this.hideLoginPanel.emit(false);
   }
 
-  reDirectOnLogin(){
+  redirectOnLogin(): void {
     localStorage.setItem("loguedUser", "true");
     this.router.navigate(['/wishes']);
+  }
+
+  showErrorOnLogin(err: String) {
+    console.error( err);
   }
 
 
